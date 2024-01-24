@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de memes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c89c9de4f7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body id="body">
+    <!------ HEADER ----->
+    <header class="title-and-settings flex-container">
+        <h1>Generador de memes</h1>
+        <ul class="flex-container row-container">
+            <li class="is-hover is-cursor" id="image-panel-button">
+                <i class="fa-solid fa-file-image"></i>
+                Imagen
+            </li>
+            <li class="is-hover is-cursor" id="text-panel-button">
+                <i class="fa-solid fa-a"></i>
+                Texto
+            </li>
+            <li class="is-hover is-cursor" id="mode-panel-button">
+                <i class="fa-regular fa-lightbulb" id="dark-mode-icon"></i>
+                <span id="dark-mode-span">Dark mode</span>
+            </li>
+        </ul>
+    </header>
+    <!----- MEME CONTAINER ----->
+    <main class="flex-container">
+        <div class="meme-container flex-container" id="meme-container">
+            <h2 class="meme-text" id="top-text-cont">TOP TEXT</h2>
+            <div class="image-container" id="image-container"></div>
+            <h2 class="meme-text" id="bottom-text-cont">BOTTOM TEXT</h2>
+        </div>
+        <section class="download-section">
+            <button type="button" class="download-button is-cursor" id="download-button">
+                <i class="fa-solid fa-download"></i>
+                Descargar meme
+            </button>
+        </section>
+    </main>
+    <!-------- ASIDE ------->
+    <!-- IMAGEN -->
+    <aside class="image-settings flex-container" id="image-panel">
+        <div class="x-button-container flex-container">
+            <i class="fa-solid is-hover is-cursor fa-xmark" id="close-image-button"></i>
+        </div>
+        <h3>IMAGEN</h3>
+        <form class="flex-container flex-start">
+            <section class="url-container panel-settings">
+                <h5>URL</h5>
+                <input type="text" id="input-url" class="is-hover">
+            </section>
+            <section class="panel-settings">
+                <h5>FONDO</h5>
+                <div class="color-n-style flex-container flex-start row-container">
+                    <label class="relative-container">
+                        <input type="color" value="#FFFFFF" id="image-back" class="input-color"><span class="color-span"
+                            id="color-name-image">#FFFFFF</span>
+                    </label>
+                    <select name="filter" id="image-blend" class="is-hover is-cursor">
+                        <option value="unset">None</option>
+                        <option value="lighten">Lighten</option>
+                        <option value="darken">Darken</option>
+                        <option value="difference">Difference</option>
+                        <option value="luminosity">Luminosity</option>
+                        <option value="multiply">Multiply</option>
+                    </select>
+                </div>
+            </section>
+        </form>
+        <!----- FILTROS ------>
+        <form class="panel-settings">
+            <h5>FILTROS</h5>
+            <label for="bright-range">BRILLO</label>
+            <input type="range" class="slide-bar" id="bright-range" min="0" max="1" step="0.1" value="1">
+            <label for="opacity-range">OPACIDAD</label>
+            <input type="range" class="slide-bar" id="opacity-range" min="0" max="1" step="0.1" value="1">
+            <label for="contrast-range">CONTRASTE</label>
+            <input type="range" class="slide-bar" id="contrast-range" min="100" max="1000" step="1" value="100">
+            <label for="blur-range">DIFUMINAR</label>
+            <input type="range" class="slide-bar" id="blur-range" min="0" max="10" step="0.1" value="0">
+            <label for="gray-range">ESCALA DE GRISES</label>
+            <input type="range" class="slide-bar" id="gray-range" min="0" max="100" step="1" value="0">
+            <label for="sepia-range">SEPIA</label>
+            <input type="range" class="slide-bar" id="sepia-range" min="0" max="100" step="1" value="0">
+            <label for="hue-range">MATIZ</label>
+            <input type="range" class="slide-bar" id="hue-range" min="0" max="359" step="1" value="0">
+            <label for="saturation-range">SATURACION</label>
+            <input type="range" class="slide-bar" id="saturation-range" min="100" max="1000" step="10" value="100">
+            <label for="invert-range">INVERTIR</label>
+            <input type="range" class="slide-bar" id="invert-range" min="0" max="1" step="0.1" value="0">
+            <input type="reset" class="reset is-hover is-cursor" id="button-reset" value="Resetear filtros">
+        </form>
+
+    </aside>
+    <!------ TEXTO ------->
+    <aside class="text-settings flex-container hidden" id="text-panel">
+        <div class="x-button-container flex-container">
+            <i class="fa-solid is-hover is-cursor fa-xmark" id="close-text-button"></i>
+        </div>
+        <h3>TEXT</h3>
+        <form class="flex-container flex-start">
+            <section class="panel-settings">
+                <h5>TOP</h5>
+                <textarea name="top-text" id="top-text" rows="2" class="is-hover">TOP TEXT</textarea>
+                <div class="flex-container row-container">
+                    <input type="checkbox" id="disable-top-text" class="checkbox-style">
+                    <label for="check-top-text" class="label-checkbox">Without top text</label>
+                </div>
+            </section>
+            <section class="panel-settings">
+                <h5>BOTTOM</h5>
+                <textarea name="bottom-text" id="bottom-text" rows="2" class="is-hover">BOTTOM TEXT</textarea>
+                <div class="flex-container row-container">
+                    <input type="checkbox" id="disable-bottom-text" class="checkbox-style">
+                    <label for="check-bottom-text" class="label-checkbox">Without bottom text</label>
+                </div>
+            </section>
+            <!-- FUENTES -->
+            <section class="panel-settings flex-container">
+                <h5>FUENTE</h5>
+                <select name="font" id="font-selector" class="is-hover">
+                    <option value="Arial">Arial</option>
+                    <option value="Arial Black">Arial Black</option>
+                    <option value="American Typewriter">American Typewriter</option>
+                    <option value="Andale Mono">Andale Mono</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Impact" selected>Impact</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+                <div class="font-container flex-container row-container between-container">
+                    <input type="number" name="Font size" min="12" value="40" class="is-hover" id="font-size">
+                    <section class="button-container flex-container row-container between-container">
+                        <button type="button" class="justify-button is-hover is-cursor" id="align-left">
+                            <i class="fa-solid fa-align-left"></i>
+                        </button>
+                        <button type="button" class="justify-button is-hover is-cursor" id="align-center">
+                            <i class="fa-solid fa-align-center"></i>
+                        </button>
+                        <button type="button" class="justify-button is-hover is-cursor" id="align-right">
+                            <i class="fa-solid fa-align-right"></i>
+                        </button>
+                    </section>
+                </div>
+            </section>
+            <section class="panel-settings flex-container flex-start">
+                <div class="flex-container row-container">
+                    <div class="flex-container between-container">
+                        <h5>COLOR</h5>
+                        <label class="relative-container">
+                            <input type="color" value="#00000" id="font-color" class="input-color"><span
+                                class="color-span" id="color-text">#000000</span>
+                        </label>
+                    </div>
+                    <div class="flex-container background-letter">
+                        <h5>FONDO</h5>
+                        <label class="relative-container">
+                            <input type="color" value="#FFFFFF" id="font-background" class="input-color"><span
+                                class="color-span" id="color-text-background">#FFFFFF</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-container row-container">
+                    <input type="checkbox" id="disable-font-background" class="checkbox-style">
+                    <label for="disable-font-background" class="label-checkbox">Transparent background</label>
+                </div>
+            </section>
+            <section class="panel-settings">
+                <h5>BORDE</h5>
+                <div class="button-container flex-container row-container between-container">
+                    <button type="button" class="justify-button is-hover is-cursor" id="border-none">None</button>
+                    <button type="button" class="justify-button is-hover is-cursor" id="border-light">Light</button>
+                    <button type="button" class="justify-button is-hover is-cursor" id="border-dark">Dark</button>
+                </div>
+            </section>
+            <section class="panel-settings">
+                <label for="space-letters">PADDING</label>
+                <input type="number" min="0" value="35" id="font-spacing" class="is-hover">
+            </section>
+            <section class="panel-settings">
+                <label for="leading-letters">LEADING</label>
+                <select name="leading" id="font-leading" class="is-hover">
+                    <option value="0.8">0.8</option>
+                    <option value="1">1</option>
+                    <option value="1.2" selected>1.2</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                </select>
+            </section>
+        </form>
+    </aside>
+    <script src="main.js"></script>
+</body>
+</html>

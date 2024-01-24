@@ -1,0 +1,407 @@
+/*GENERAL SETTINGS*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #342e3b;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-container {
+    flex-direction: row;
+}
+
+.flex-start {
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.is-cursor {
+    cursor: pointer;
+}
+
+/* HEADER  ---------------------------- */
+
+.title-and-settings {
+    background-color: #24192b;
+    width: 100%;
+    padding: 13px 10px 5px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 13px 0 3px;
+    flex-wrap: wrap;
+}
+
+li {
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin: 0px 3px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+li i {
+    margin-right: 2px;
+}
+
+/* MAIN/IMAGE ----------------------------------*/
+
+main {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.meme-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: black;
+    flex-grow: 1;
+    height: 600px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    width: 100%;
+    flex-grow: 1;
+    justify-content: space-between;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.meme-text {
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 800;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    padding: 35px 30px;
+    background-color: white;
+}
+
+#top-text-cont {
+    top: 0;
+}
+
+#bottom-text-cont {
+    bottom: 0;
+}
+
+.download-section {
+    padding: 10px;
+}
+
+.download-button {
+    padding: 15px;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 2px;
+}
+
+/* ASIDE/IMAGE SETTINGS -------------------------------------*/
+
+div {
+    width: 100%;
+}
+
+.image-settings, .text-settings {
+    background-color: #2e2535;
+    position: absolute;
+    width: 246px;
+    right: 0;
+    top: 0;
+    justify-content: flex-start;
+}
+
+.x-button-container {
+    align-items: flex-end;
+    padding: 20px;
+    display: none;
+}
+
+.fa-xmark {
+    padding: 5px 7px;
+    border-radius: 3px;
+}
+
+h3 {
+    margin-top: 30px;
+}
+
+h5, label, input[type='range'] {
+    margin-bottom: 10px;
+    font-size: 12px;
+    width: 100%;
+}
+
+form {
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+}
+
+
+.panel-settings {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.url-container {
+    margin: 0;
+}
+
+/*input custumize - image */
+
+input, select, .input-color, form button, textarea  {
+    color: white;
+    width: 100%;
+    height: 35px;
+    background-color: #463949;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.color-n-style select {
+    margin-left: 5px;
+}
+
+.relative-container {
+    position: relative;
+}
+
+form button {
+    width: 150px;
+    font-size: 15px;
+    margin-top: 20px
+}
+
+.color-span {
+    font-size: 13px;
+    position: absolute;
+    top: 9px;
+    right: 12px;
+}
+
+/* SLIDERS */
+
+input[type='range'] {
+    height: 0;
+    padding: 0;
+}
+
+.slide-bar, .slide-bar::-webkit-slider-runnable-track, .slide-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+.slide-bar::-webkit-slider-thumb {
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-top: -4px;
+    cursor: pointer;
+}
+
+.slide-bar::-webkit-slider-runnable-track {
+    background-color:#685a67;
+    height: 6px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+/* Color */
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    width: 22px;
+    height: 25px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+    border-radius: 70%;
+}
+
+/* Reset button */
+
+.reset {
+    width: 70%;
+    margin: 15px 0;
+}
+
+/* ASIDE/TEXT SETTINGS -------------------------------------*/
+
+.checkbox-style {
+    width: 13px;
+}
+
+.label-checkbox {
+    margin: 0 5px;
+}
+
+.font-container {
+    margin: 5px 0 ;
+}
+
+.button-container {
+    width: 100%;
+}
+
+.between-container {
+    justify-content: space-between;
+}
+
+.justify-button {
+    width: 100%;
+    margin: 0 0 0 5px;
+}
+
+.background-letter {
+    margin-left: 5px;
+}
+
+/* USER INTERACTION ------------------- */
+
+/* Hover ---- */
+
+.is-hover:hover {
+    background-color: #654e64;
+}
+
+/* Focus ---- */
+
+.slide-bar:focus::-webkit-slider-runnable-track {
+    outline: none;
+    background-color: #9e9e9e;
+}
+
+/* Active ---- */
+
+.download-button:active {
+    background-color: rgb(30, 164, 30);
+}
+
+/********************
+        JS CHANGES
+**********************/
+
+/* LIGHT MODE */
+
+.light-mode {
+    color: #676683;
+    background-color: #eddbda;
+
+    .title-and-settings {
+        background-color: #ebe1e3;
+    }
+
+    .image-settings, .text-settings {
+        background-color: #f6f2f2;
+    }
+
+    .image-settings input,.text-settings input, select, .input-color, form button, textarea {
+        background-color: #ebe1e3;
+        color: #676683;
+    }
+
+    .slide-bar::-webkit-slider-thumb {
+        background-color: #C9ADBF;
+    }
+
+    .slide-bar::-webkit-slider-runnable-track {
+        background-color:#ebe1e3;
+    }
+
+    .is-hover:hover {
+        background-color: #e2c1ca;
+    }
+
+    .slide-bar:focus::-webkit-slider-runnable-track {
+        background-color: #e2c1ca;
+    }
+
+}
+
+/* Hide panels */
+
+.hidden {
+    display: none;
+}
+
+/* MEDIA QUERIES*/
+
+@media(max-width:1300px) {
+
+    .image-settings, .text-settings {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .x-button-container {
+        display: flex;
+    }
+
+    h3 {
+        margin-top: 0px;
+    }
+
+}
+
+@media(max-width:700px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .meme-text {
+        font-size: 6vw;
+        padding: 2%;
+    }
+
+    .meme-container {
+        height: 95vmin;
+
+    }
+}
+
+@media(max-width:400px) {
+    
+    .image-settings, .text-settings {
+        width: 100%;
+    }
+
+    main {
+        padding-top: 20%;
+    }
+
+}
